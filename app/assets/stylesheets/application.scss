@@ -27,6 +27,7 @@ html {
 }
 
 body {
+  background-color: #f7f7f7;
   padding-top: 60px;
 }
 
@@ -74,6 +75,10 @@ p {
 }
 
 /* header */
+
+.container {
+  height: 70px;
+}
 
 #logo {
   margin-left: 10px;
