@@ -22,6 +22,7 @@ gem 'coffee-script-source', '1.8.0'
 
 gem 'bootstrap-sass'
 gem 'sprockets'
+gem 'pry-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

@@ -1,0 +1,26 @@
+<% symbol_code = "NASDAQ:AAPL" if symbol_code.nil? %>
+
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div id="tradingview_38b56"></div>
+  <div class="tradingview-widget-copyright">TradingView提供の<a href="https://jp.tradingview.com/symbols/<%= symbol_code %>/" rel="noopener" target="_blank"><span class="blue-text">AAPLチャート</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script type="text/javascript">
+  new TradingView.widget(
+  {
+  "autosize": true,
+  "symbol": "<%= symbol_code %>",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "dark",
+  "style": "1",
+  "locale": "ja",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "allow_symbol_change": true,
+  "container_id": "tradingview_38b56"
+}
+  );
+  </script>
+</div>
+<!-- TradingView Widget END -->
