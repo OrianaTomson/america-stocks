@@ -1,0 +1,45 @@
+// Place all the styles related to the Chart controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
+
+// variables
+$card-width:  350px;
+$card-height: 500px;
+$h-color:     #9CC9E3;
+$yellow:      #D0BB57;
+$txt-color:   #DCE3E7;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.chart-area{
+    margin-top: 8%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .blog-card{
+        margin-top: 3%;
+        width: $card-width;
+        height: $card-height;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+        text-align: center;
+        margin-left: 10px;
+      }
+      
+      .tradingview-widget-container {
+          height: 100%;
+      }
+      
+       #tradingview_38b56{
+          height: 100%;
+       }
+}
+
