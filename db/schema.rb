@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210829070510) do
+ActiveRecord::Schema.define(version: 20210910060209) do
+
+  create_table "stocks", force: :cascade do |t|
+    t.string   "code"
+    t.string   "client_name"
+    t.string   "explain"
+    t.string   "market"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "trading_views", force: :cascade do |t|
+    t.string   "code"
+    t.string   "container_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "tweets", force: :cascade do |t|
     t.string   "text"
