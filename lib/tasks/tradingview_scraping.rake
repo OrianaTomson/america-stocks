@@ -14,33 +14,22 @@ namespace :tradingview_scraping do
     end
 
     desc "tradingViewからcontainer_idを引っ張ってくる"
-    task :sample2 => :environment do
+    task :get_container_ids => :environment do
         driver = Selenium::WebDriver.for :chrome
         driver.navigate.to "https://jp.tradingview.com/widget/advanced-chart/"
         inputElement = driver.find_element(:id, 'symbol')
+        submitElement = driver.find_element(:id, 'apply')
+        outputElement = driver.find_element(:id, 'output')
 
         # 銘柄コード取得
-        codes= ["A",
-                "AA",
-                "AADI",
-                "AAL",
-                "AAN",
-                "AAOI",
-                "AAON",
-                "AAP",
-                "AAPL",
-                "AATC",
-                "AAU",
-                "AAWW"]
+        codes = Stock.all.map{|tv| tv.code}
 
         codes.each do |code|
+            container_id = nil
             inputElement.clear
             inputElement.send_keys code
-            submitElement = driver.find_element(:id, 'apply')
             submitElement.click
-    
-            outputElement = driver.find_element(:id, 'output')
-            container_id = nil
+            
             outputElement.attribute("value").split(/\n/).each do |text|
                 if text.include?("container_id")
                     container_id = text.split(":")[1].gsub(/\"|^ /,"")

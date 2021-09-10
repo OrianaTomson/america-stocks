@@ -17,14 +17,13 @@ $txt-color:   #DCE3E7;
   padding: 0;
 }
 
-
 .chart-area{
-    margin-top: 8%;
+    margin-top: 0%;
     display: flex;
     flex-wrap: wrap;
 
     .blog-card{
-        margin-top: 3%;
+        margin-top: 1%;
         width: $card-width;
         height: $card-height;
         overflow: hidden;
@@ -43,3 +42,20 @@ $txt-color:   #DCE3E7;
        }
 }
 
+.mylist {
+  position: relative;
+  padding: 1rem .5rem;
+}
+
+.mylist:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  content: '';
+  border-radius: 3px;
+  background-image: -webkit-gradient(linear, right top, left top, from(#2af598), to(#009efd));
+  background-image: -webkit-linear-gradient(right, #2af598 0%, #009efd 100%);
+  background-image: linear-gradient(to left, #2af598 0%, #009efd 100%);
+}

@@ -1,8 +1,10 @@
-<h4>マイリスト</h4>
+<h2 class="mylist">マイリスト</h2>
 <div class="chart-area">
-    <% @tradingviews.each do |tradingview| %>
-        <div class="blog-card">
-            <%= render :partial => "shared/tradingview", locals: { symbol_code: tradingview.code, container_id: tradingview.container_id} %>
-        </div>
+    <% unless @tradingviews.nil? %>
+        <% @tradingviews.each do |tradingview| %>
+            <div class="blog-card">
+                <%= render :partial => "shared/tradingview", locals: { symbol_code: tradingview.code, container_id: tradingview.container_id} %>
+            </div>
+        <% end %> 
     <% end %> 
 </div>
