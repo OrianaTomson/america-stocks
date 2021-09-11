@@ -1,0 +1,18 @@
+<table class='table-stocks'>
+    <tr class='table-index-th'>
+        <th></th>
+        <th>銘柄コード</th>
+        <th>企業名</th>
+        <th style="width: 50%">説明</th>
+        <th>市場</th>
+    <tr>
+    <% @stocks.each do |stock| %>
+        <tr class='table-index-tr'>
+            <td><%= image_tag 'machine.jpg' %></td>
+            <td><%= stock.code %></td>
+            <td><%= stock.client_name %></td>
+            <td><%= stock.explain %></td>
+            <td><%= stock.market %></td>
+        </tr>
+    <% end %>
+</table>

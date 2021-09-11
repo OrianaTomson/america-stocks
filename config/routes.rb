@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'stock/index'
+
   get 'my_list/index'
 
   get 'chart/index'
