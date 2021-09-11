@@ -1,17 +1,20 @@
-<div class="cp_ipselect cp_sl02">
-    <select required>
-        <option value="2" selected>日足</option>
-        <option value="3">週足</option>
-        <option value="4">月足</option>
-    </select>
-</div>
+
+<%= form_tag :controller => "/chart", :action => "index" do %>
+    <div class="cp_ipselect cp_sl02">
+        <select id="time_id" name="time_id" onchange="this.form.submit()">
+            <option value="2" <%= @time_id == 2 ? "selected" : "" %>>日足</option>
+            <option value="3" <%= @time_id == 3 ? "selected" : "" %>>週足</option>
+            <option value="4" <%= @time_id == 4 ? "selected" : "" %>>月足</option>
+        </select>
+    </div>
+<% end %>
 
 <h2 class="mylist">マイリスト</h2>
 <div class="chart-area">
     <% unless @tradingviews.nil? %>
         <% @tradingviews.each do |tradingview| %>
             <div class="blog-card">
-                <%= render :partial => "shared/tradingview", locals: { symbol_code: tradingview.code, container_id: tradingview.container_id} %>
+                <%= render :partial => "shared/tradingview", locals: { symbol_code: tradingview.code, container_id: tradingview.container_id, time: @time} %>
                 <%= image_tag 'resize.png', class: "icon-resize" %>
             </div>
         <% end %> 
