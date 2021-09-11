@@ -31,6 +31,15 @@ $txt-color:   #DCE3E7;
         box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
         text-align: center;
         margin-left: 10px;
+        position: relative;
+        resize: both;
+
+        .icon-resize{
+          position: absolute;
+          right: 1px;
+          bottom: 1px;
+          width: 14px;
+        }
       }
       
       .tradingview-widget-container {

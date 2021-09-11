@@ -4,6 +4,7 @@
         <% @tradingviews.each do |tradingview| %>
             <div class="blog-card">
                 <%= render :partial => "shared/tradingview", locals: { symbol_code: tradingview.code, container_id: tradingview.container_id} %>
+                <%= image_tag 'resize.png', class: "icon-resize" %>
             </div>
         <% end %> 
     <% end %> 
