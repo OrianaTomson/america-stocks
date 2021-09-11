@@ -25,6 +25,8 @@ namespace :tradingview_scraping do
         codes = Stock.all.map{|tv| tv.code}
 
         codes.each do |code|
+            next if TradingView.find_by(code: code).present?
+
             container_id = nil
             inputElement.clear
             inputElement.send_keys code
