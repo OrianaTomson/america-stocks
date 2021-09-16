@@ -7,7 +7,7 @@
         <th>市場</th>
     <tr>
     <% @stocks.each do |stock| %>
-        <tr class='table-index-tr'>
+        <tr class='table-index-tr' data-href="https://www.webantena.net/">
             <td><%= image_tag 'machine.jpg' %></td>
             <td><%= stock.code %></td>
             <td><%= stock.client_name %></td>

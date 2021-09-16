@@ -6,6 +6,10 @@
     margin-top: 3%;
     color: #e3e3e3;
 
+    tr:hover td {
+        background-color: #222;
+        cursor: pointer;
+    }
 
     .table-index-th{
         background-color: #222;
