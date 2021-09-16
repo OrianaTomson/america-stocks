@@ -1,5 +1,11 @@
 class StockController < ApplicationController
   def index
-    @stocks = Stock.all.limit(20)
+    code = params[:search]
+
+    if code.present?
+      @stocks = Stock.where('code like ?', "%" + code + "%").limit(100)
+    else
+      @stocks = Stock.all.limit(100)
+    end
   end
 end

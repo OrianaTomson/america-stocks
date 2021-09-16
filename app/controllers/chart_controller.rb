@@ -1,6 +1,6 @@
 class ChartController < ApplicationController
   def index
-    @tradingviews = TradingView.all.limit(2)
+    @tradingviews = TradingView.all.limit(20)
     # @tradingviews = nil
     if params[:time_id].present?
       @time_id = params[:time_id].to_i

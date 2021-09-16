@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'stock/index'
+  post 'stock/index'
 
   get 'my_list/index'
 

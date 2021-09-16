@@ -10,6 +10,6 @@ jQuery ($) ->
     if !$(e.target).is('a')
       #その要素の先祖要素で一番近いtrの
       #data-href属性の値に書かれているURLに遷移する
-      window.location = $(e.target).closest('tr').data('href')
+      window.open($(e.target).closest('tr').data('href'), "_blank");
     return
   return
