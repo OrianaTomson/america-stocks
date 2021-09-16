@@ -7,3 +7,10 @@ $ ->
     $('form').submit()
     return
   return
+
+$ ->
+  $('.grid-select').change ->
+    $('.blog-card').css('width', '100%') if $('.grid-select option:selected').val() == '2'
+    $('.blog-card').css('width', '30%') if $('.grid-select option:selected').val() == '1'
+    return
+  return

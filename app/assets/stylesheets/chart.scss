@@ -70,9 +70,25 @@ $txt-color:   #DCE3E7;
   background-image: -webkit-linear-gradient(right, #2af598 0%, #009efd 100%);
   background-image: linear-gradient(to left, #2af598 0%, #009efd 100%);
 }
+
+.chart-selectbox-group{
+  display: flex;
+  margin-top: 1%;
+
+  .time-select{
+    padding: 4px 38px 4px 8px;
+    border-radius: 4px;
+  }
+
+  .grid-select{
+    margin-left: 10px;
+    padding: 4px 38px 4px 8px;
+    border-radius: 4px;
+  }
+}
+
 .cp_ipselect {
 	overflow: hidden;
-  width: 10%;
   margin-top: 2%;
 	text-align: left;
 }

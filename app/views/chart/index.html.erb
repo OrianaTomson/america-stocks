@@ -1,13 +1,19 @@
+<div class="chart-selectbox-group">
+    <%= form_tag({ :controller => "/chart", :action => "index" },{ :id => "select_form_id"}) do %>
+        <div class="">
+            <select id="time_id" name="time_id" class="time-select" onchange="this.form.submit()">
+                <option value="2" <%= @time_id == 2 ? "selected" : "" %>>日足</option>
+                <option value="3" <%= @time_id == 3 ? "selected" : "" %>>週足</option>
+                <option value="4" <%= @time_id == 4 ? "selected" : "" %>>月足</option>
+            </select>
+        </div>
+    <% end %>
 
-<%= form_tag :controller => "/chart", :action => "index" do %>
-    <div class="cp_ipselect cp_sl02">
-        <select id="time_id" name="time_id" onchange="this.form.submit()">
-            <option value="2" <%= @time_id == 2 ? "selected" : "" %>>日足</option>
-            <option value="3" <%= @time_id == 3 ? "selected" : "" %>>週足</option>
-            <option value="4" <%= @time_id == 4 ? "selected" : "" %>>月足</option>
-        </select>
-    </div>
-<% end %>
+    <select class="grid-select">
+        <option value="1">■■■</option>
+        <option value="2">〓</option>
+    </select>
+</div>
 
 <h2 class="mylist">マイリスト</h2>
 <div class="chart-area">
