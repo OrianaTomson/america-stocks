@@ -13,6 +13,7 @@
         <th style="width: 50%">説明</th>
         <th>市場</th>
     <tr>
+    <%= paginate @stocks %>
     <% @stocks.each do |stock| %>
         <tr class='table-index-tr' data-href="https://jp.tradingview.com/symbols/<%= stock.market + "-" + stock.code %>/ideas" target="_blank">
             <td><%= image_tag 'machine.jpg' %></td>

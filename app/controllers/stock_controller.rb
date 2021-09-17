@@ -3,9 +3,11 @@ class StockController < ApplicationController
     code = params[:search]
 
     if code.present?
-      @stocks = Stock.where('code like ?', "%" + code + "%").limit(100)
+      @stocks = Stock.where('code like ?', "%" + code + "%")
     else
-      @stocks = Stock.all.limit(100)
+      @stocks = Stock.all
     end
+
+    @stocks = @stocks.page(params[:page]).per(20)
   end
 end
