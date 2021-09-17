@@ -13,3 +13,12 @@ jQuery ($) ->
       window.open($(e.target).closest('tr').data('href'), "_blank");
     return
   return
+
+$ ->
+  $('#mylist-dropdown').hide()
+
+$ ->
+  $('.table-index-tr').click (e) ->
+    $('#mylist-dropdown').show()
+    return
+  return

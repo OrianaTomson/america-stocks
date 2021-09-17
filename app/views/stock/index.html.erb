@@ -1,8 +1,8 @@
 
 <p>検索</p>
 <%= form_tag({ :controller => "/stock", :action => "index" },{ :id => "search_form_id"}) do %>
-  <%= text_field_tag :search %>
-  <%= submit_tag 'Search', :name => nil %>
+  <%= text_field_tag :search , '',:placeholder => "銘柄コードを入力" %>
+  <%= submit_tag '検索', :name => nil , :style => "width: 50px;"%>
 <% end %>
 
 <table class='table-stocks'>
@@ -25,16 +25,10 @@
     <% end %>
 </table>
 
-<div class="pop-box">
-  <label for="popup-on"><label for="popup-on"><div class="btn-open"><img src="https://homepagenopro.com/wp-content/uploads/2018/08/d11_img_mizudori.png" alt="" class="layer-img"></div></label>
-  <input type="checkbox" id="popup-on">
-  <div class="popup">
-    <label for="popup-on" class="icon-close">×</label>
-    <div class="popup-content">
-       <!-- ポップアップの中身 -->
-       ポップアップの内容<br>画像もOK<br>
-      <img src="https://homepagenopro.com/wp-content/uploads/2018/08/d11_img_mizudori.png" alt="" class="layer-img">
-        <!-- ./ポップアップの中身　ここまで -->
-    </div>
-  </div>
+<div id="mylist-dropdown">
+  <ul>
+    <li>1つめの項目</li>
+    <li>2つめの項目</li>
+    <li>3つめの項目</li>
+  </ul>
 </div>
