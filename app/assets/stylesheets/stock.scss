@@ -52,5 +52,16 @@
     padding: 9px;
     white-space: nowrap;
    }
+
+   .astarisk{
+    text-align: left;
+    color: gray !important;
+    font-size: 5px;
+    cursor: unset !important;
+    background-color: #f1f1f1 !important;
+    padding: 2px 0px 0px 7px;
+    border-bottom: 1px outset gray;
+    border-radius: 3px 3px 0px 0px;
+   }
 }
 

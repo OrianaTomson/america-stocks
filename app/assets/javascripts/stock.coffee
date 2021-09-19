@@ -22,5 +22,18 @@ $ ->
     $('#mylist-dropdown').css(top: e.pageY)
     $('#mylist-dropdown').css(left: e.pageX)
     $('#mylist-dropdown').show()
+
+    $('#trd-idea-link').attr("href", e.currentTarget.dataset.href)
     return
+  return
+
+ivnt_keydown = (e) ->
+  # ESCAPE key pressed
+  if e.keyCode == 27
+    $('#mylist-dropdown').fadeOut()
+
+  return
+
+$ ->
+  $(document).keydown ivnt_keydown
   return
