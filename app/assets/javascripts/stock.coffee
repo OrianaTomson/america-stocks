@@ -3,22 +3,24 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 # You can use CoffeeScript in this file: http://coffeescript.org/
-jQuery ($) ->
-  #data-hrefの属性を持つtrを選択しclassにclickableを付加
-  $('tr[data-href]').addClass('clickable').click (e) ->
-    #e.targetはクリックした要素自体、それがa要素以外であれば
-    if !$(e.target).is('a')
-      #その要素の先祖要素で一番近いtrの
-      #data-href属性の値に書かれているURLに遷移する
-      window.open($(e.target).closest('tr').data('href'), "_blank");
-    return
-  return
+# jQuery ($) ->
+#   #data-hrefの属性を持つtrを選択しclassにclickableを付加
+#   $('tr[data-href]').addClass('clickable').click (e) ->
+#     #e.targetはクリックした要素自体、それがa要素以外であれば
+#     if !$(e.target).is('a')
+#       #その要素の先祖要素で一番近いtrの
+#       #data-href属性の値に書かれているURLに遷移する
+#       window.open($(e.target).closest('tr').data('href'), "_blank");
+#     return
+#   return
 
 $ ->
   $('#mylist-dropdown').hide()
 
 $ ->
   $('.table-index-tr').click (e) ->
+    $('#mylist-dropdown').css(top: e.pageY)
+    $('#mylist-dropdown').css(left: e.pageX)
     $('#mylist-dropdown').show()
     return
   return

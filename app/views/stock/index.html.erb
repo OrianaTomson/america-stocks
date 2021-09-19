@@ -15,7 +15,7 @@
     <tr>
     <%= paginate @stocks %>
     <% @stocks.each do |stock| %>
-        <tr class='table-index-tr' data-href="https://jp.tradingview.com/symbols/<%= stock.market + "-" + stock.code %>/ideas" target="_blank">
+        <tr class='table-index-tr' stock_id="<%= stock.id %>", data-href="https://jp.tradingview.com/symbols/<%= stock.market + "-" + stock.code %>/ideas" target="_blank">
             <td><%= image_tag 'machine.jpg' %></td>
             <td><%= stock.code %></td>
             <td><%= stock.client_name %></td>
@@ -26,9 +26,7 @@
 </table>
 
 <div id="mylist-dropdown">
-  <ul>
-    <li>1つめの項目</li>
-    <li>2つめの項目</li>
-    <li>3つめの項目</li>
-  </ul>
+  <p>アイディアを見る</p>
+  <p>【定期的に吹くやつ】に追加</p>
+  <p>【定期的に吹くやつ】に追加</p>
 </div>
