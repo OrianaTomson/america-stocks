@@ -32,7 +32,15 @@
   <p class="astarisk">ESCで閉じる</p>
   <a href="javascript void(0)" id="trd-idea-link" target="_blank"><p>アイディアを見る</p></a>
   <p class="astarisk">My List</p>
-  <p>【定期的に吹くやつ】に追加</p>
-  <p>【定期的に吹くやつ】に追加</p>
-  <p>リストを新規作成</p>
+  <div id="mylist-list">
+    <p>【定期的に吹くやつ】に追加</p>
+    <p>【定期的に吹くやつ】に追加</p>
+  </div>
+  <p class="astarisk">リスト新規</p>
+  <p class="list_name_label">名前</p>
+  
+  <%= form_tag({:controller => '/stock', :action => 'ajax_regist_mylist'}, :remote => true, :class => 'form-ajax') do -%>
+    <input type="text" name="list_name" size="25" placeholder="リスト名"　id="list_name_input">
+    <input type="submit" value="登録">
+  <% end %>
 </div>
