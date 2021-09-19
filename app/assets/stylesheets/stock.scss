@@ -6,6 +6,11 @@
     margin-top: 1%;
     color: #e3e3e3;
 
+    .table-index-th{
+        position: sticky;
+        top: 200px;
+    }
+
     tr:hover td {
         background-color: #222;
         cursor: pointer;
@@ -104,3 +109,9 @@
     outline : none;
   }
   
+#stock-header{
+    padding-top: 2%;
+    position: fixed;
+    background: #34373e;
+    width: 100%;
+}

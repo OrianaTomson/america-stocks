@@ -37,3 +37,7 @@ ivnt_keydown = (e) ->
 $ ->
   $(document).keydown ivnt_keydown
   return
+
+$ ->
+  $('#mylist-dropdown').click (e) ->
+    $('#mylist-dropdown').fadeOut()

@@ -1,10 +1,13 @@
 
-<p>検索</p>
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<%= form_tag({ :controller => "/stock", :action => "index" },{ :id => "search_form_id", :class => "search_container"}) do %>
-  <input type="text" name="search" size="25" placeholder="銘柄コードを入力">
-  <input type="submit" value="&#xf002">
-<% end %>
+<div id="stock-header">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <%= form_tag({ :controller => "/stock", :action => "index" },{ :id => "search_form_id", :class => "search_container"}) do %>
+    <input type="text" name="search" size="25" placeholder="銘柄コードを入力">
+    <input type="submit" value="&#xf002">
+  <% end %>
+
+  <%= paginate @stocks %>
+</div>
 
 <table class='table-stocks'>
     <tr class='table-index-th'>
@@ -14,7 +17,6 @@
         <th style="width: 50%">説明</th>
         <th>市場</th>
     <tr>
-    <%= paginate @stocks %>
     <% @stocks.each do |stock| %>
         <tr class='table-index-tr' stock_id="<%= stock.id %>", data-href="https://jp.tradingview.com/symbols/<%= stock.market + "-" + stock.code %>/ideas" target="_blank">
             <td><%= image_tag 'machine.jpg' %></td>
