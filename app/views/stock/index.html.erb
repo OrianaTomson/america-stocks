@@ -1,8 +1,9 @@
 
 <p>検索</p>
-<%= form_tag({ :controller => "/stock", :action => "index" },{ :id => "search_form_id"}) do %>
-  <%= text_field_tag :search , '',:placeholder => "銘柄コードを入力" %>
-  <%= submit_tag '検索', :name => nil , :style => "width: 50px;"%>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<%= form_tag({ :controller => "/stock", :action => "index" },{ :id => "search_form_id", :class => "search_container"}) do %>
+  <input type="text" name="search" size="25" placeholder="銘柄コードを入力">
+  <input type="submit" value="&#xf002">
 <% end %>
 
 <table class='table-stocks'>

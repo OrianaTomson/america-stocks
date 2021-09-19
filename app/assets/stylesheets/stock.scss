@@ -12,17 +12,17 @@
     }
 
     .table-index-th{
-        background-color: #222;
+        background-color: #585858;
         /* box-shadow: 1px 1px 1px 1px; */
         // box-shadow: 3px 0px 4px rgb(0 0 0 / 50%);
     }
     
     img{
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
         margin-top: 2px;
         margin-bottom: 2px;
+        margin-right: 10px;
     }
 
     th{
@@ -65,3 +65,42 @@
    }
 }
 
+#search_form_id{
+    input#search{
+        padding: 4px 4px 4px 22px;
+    }
+}
+
+.search_container{
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid #999;
+    padding: 3px 10px;
+    border-radius: 20px;
+    height: 2.3em;
+    width: 260px;
+    overflow: hidden;
+    background-color: white;
+  }
+  .search_container input[type="text"]{
+    border: none;
+    height: 1.8em;
+  }
+  .search_container input[type="text"]:focus {
+    outline: 0;
+  }
+  .search_container input[type="submit"]{
+    cursor: pointer;
+    font-family: FontAwesome;
+    font-size: 1.3em;
+    border: none;
+    background: none;
+    color: #3879D9;
+    position: absolute;
+    width: 2.5em;
+    height: 2.7em;
+    right: 0;
+    top: -10px;
+    outline : none;
+  }
+  
