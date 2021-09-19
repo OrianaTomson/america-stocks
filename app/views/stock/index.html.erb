@@ -33,8 +33,9 @@
   <a href="javascript void(0)" id="trd-idea-link" target="_blank"><p>アイディアを見る</p></a>
   <p class="astarisk">My List</p>
   <div id="mylist-list">
-    <p>【定期的に吹くやつ】に追加</p>
-    <p>【定期的に吹くやつ】に追加</p>
+    <% @mylists.each do |mylist| %>
+      <p><%= mylist.name %></p>
+    <% end %>
   </div>
   <p class="astarisk">リスト新規</p>
   <p class="list_name_label">名前</p>
