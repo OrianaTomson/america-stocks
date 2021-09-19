@@ -38,6 +38,9 @@ $ ->
   $(document).keydown ivnt_keydown
   return
 
-$ ->
-  $('#mylist-dropdown').click (e) ->
-    $('#mylist-dropdown').fadeOut()
+# $ ->
+#   $('#mylist-dropdown').click (e) ->
+#     if e.currentTarget.id == 'mylist-dropdown'
+#       return
+#     $('#mylist-dropdown').fadeOut()
+#     return
