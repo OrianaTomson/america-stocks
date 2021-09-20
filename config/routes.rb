@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'stock/index'
   post 'stock/index'
   post 'stock/ajax_regist_mylist'
+  post 'stock/add_stock_mylist'
 
   get 'my_list/index'
 

@@ -24,6 +24,7 @@ $ ->
     $('#mylist-dropdown').show()
 
     $('#trd-idea-link').attr("href", e.currentTarget.dataset.href)
+    $('.add-list').attr('data-stockid', e.currentTarget.dataset.stockid)
     return
   return
 
@@ -37,6 +38,22 @@ ivnt_keydown = (e) ->
 $ ->
   $(document).keydown ivnt_keydown
   return
+
+$ ->
+  $('.add-list').click (e) ->
+    data = {
+      stock_id: e.currentTarget.dataset.stockid
+      mylist_id: e.currentTarget.dataset.mylistid
+    }
+
+    $.ajax '/stock/add_stock_mylist',
+      type: 'POST'
+      dataType: 'html'
+      data: data
+      error: (jqXHR, textStatus, errorThrown) ->
+        $('body').append "AJAX Error: #{textStatus}"
+      success: (data, textStatus, jqXHR) ->
+        $('body').append "Successful AJAX call: #{data}"
 
 # $ ->
 #   $('#mylist-dropdown').click (e) ->

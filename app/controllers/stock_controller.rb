@@ -16,4 +16,11 @@ class StockController < ApplicationController
     @mylist_name = params[:list_name]
     Mylist.create({name: @mylist_name})
   end
+
+  def add_stock_mylist
+    @mylist_id = params[:mylist_id]
+    @stock_id = params[:stock_id]
+    MylistStock.create({mylist_id: @mylist_id, stock_id: @stock_id})
+    render json: {error_flg: false}
+  end
 end

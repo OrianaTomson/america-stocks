@@ -18,7 +18,7 @@
         <th>市場</th>
     <tr>
     <% @stocks.each do |stock| %>
-        <tr class='table-index-tr' stock_id="<%= stock.id %>", data-href="https://jp.tradingview.com/symbols/<%= stock.market + "-" + stock.code %>/ideas" target="_blank">
+        <tr class='table-index-tr' data-stockid="<%= stock.id %>", data-href="https://jp.tradingview.com/symbols/<%= stock.market + "-" + stock.code %>/ideas" target="_blank">
             <td><%= image_tag 'machine.jpg' %></td>
             <td><%= stock.code %></td>
             <td><%= stock.client_name %></td>
@@ -34,7 +34,7 @@
   <p class="astarisk">My List</p>
   <div id="mylist-list">
     <% @mylists.each do |mylist| %>
-      <p><%= mylist.name %></p>
+      <p class="add-list" data-stockid="" data-mylistid="<%= mylist.id %>"><%= mylist.name %></p>
     <% end %>
   </div>
   <p class="astarisk">リスト新規</p>
