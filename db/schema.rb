@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210919153030) do
+ActiveRecord::Schema.define(version: 20210920003257) do
+
+  create_table "mylist_stocks", force: :cascade do |t|
+    t.integer  "mylist_id"
+    t.integer  "stock_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "mylists", force: :cascade do |t|
     t.string   "name"
