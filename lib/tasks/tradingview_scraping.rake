@@ -44,4 +44,15 @@ namespace :tradingview_scraping do
 
         driver.quit
     end
+
+    desc "tradingViewとstockの関連付け"
+    task :code_normalize => :environment do
+        stocks = Stock.all
+        stocks.each do |stock|
+            t = TradingView.find_by(code: stock.code)
+            next if t.nil?
+            t.stock_id = stock.id
+            t.save
+        end
+    end
 end

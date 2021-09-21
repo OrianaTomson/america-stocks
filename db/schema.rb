@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210920003257) do
+ActiveRecord::Schema.define(version: 20210921133410) do
 
   create_table "mylist_stocks", force: :cascade do |t|
     t.integer  "mylist_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20210920003257) do
     t.string   "container_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "stock_id"
   end
 
   create_table "tweets", force: :cascade do |t|

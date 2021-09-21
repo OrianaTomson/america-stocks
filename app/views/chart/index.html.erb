@@ -1,5 +1,8 @@
 <div class="chart-selectbox-group">
     <%= form_tag({ :controller => "/chart", :action => "index" },{ :id => "select_form_id"}) do %>
+
+        <%# select_tag("select_mylist", options_for_select(@mylists.pluck(:name))) %>
+
         <div class="">
             <select id="time_id" name="time_id" class="time-select" onchange="this.form.submit()">
                 <option value="2" <%= @time_id == 2 ? "selected" : "" %>>日足</option>
@@ -15,14 +18,16 @@
     </select>
 </div>
 
-<h2 class="mylist">マイリスト</h2>
-<div class="chart-area">
-    <% unless @tradingviews.nil? %>
-        <% @tradingviews.each do |tradingview| %>
-            <div class="blog-card">
-                <%= render :partial => "shared/tradingview", locals: { symbol_code: tradingview.code, container_id: tradingview.container_id, time: @time} %>
-                <%= image_tag 'resize.png', class: "icon-resize" %>
-            </div>
+<% @mylists.each do |mylist| %>
+    <h2 class="mylist"><%= mylist.name %></h2>
+    <div class="chart-area">
+        <% TradingView.where(stock_id: mylist.stocks.pluck(:id)).each do |tradingview| %>
+            <% unless tradingview.nil? %>
+                <div class="blog-card">
+                    <%= render :partial => "shared/tradingview", locals: { symbol_code: tradingview.code, container_id: tradingview.container_id, time: @time} %>
+                    <%= image_tag 'resize.png', class: "icon-resize" %>
+                </div>
+            <% end %> 
         <% end %> 
-    <% end %> 
-</div>
+    </div>
+<% end %> 
