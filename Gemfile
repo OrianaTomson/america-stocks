@@ -27,6 +27,7 @@ gem 'nokogiri'
 gem "selenium-webdriver"
 gem 'webdrivers'
 gem 'kaminari'
+gem 'pry-nav'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

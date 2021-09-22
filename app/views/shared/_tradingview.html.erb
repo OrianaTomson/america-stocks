@@ -1,4 +1,6 @@
 <% symbol_code = "NASDAQ:AAPL" if symbol_code.nil? %>
+<% container_id = @container_id if @container_id.present? %>
+<% symbol_code = @symbol_code if @symbol_code.present? %>
 
 <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">

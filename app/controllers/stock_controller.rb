@@ -23,4 +23,13 @@ class StockController < ApplicationController
     MylistStock.create({mylist_id: @mylist_id, stock_id: @stock_id})
     render json: {error_flg: false}
   end
+
+  def ajax_disp_chart
+    @stock = Stock.find_by(id: params[:stock_id])
+    @trading_view = TradingView.find_by(stock_id: @stock.id)
+    @symbol_code = @stock.code
+    @container_id = @trading_view.container_id
+    @time = "W"
+    render template: "shared/_tradingview", layout: false
+  end
 end

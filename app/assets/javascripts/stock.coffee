@@ -17,8 +17,38 @@
 $ ->
   $('#mylist-dropdown').hide()
 
+  data = {
+    stock_id: 1
+    mylist_id: 1
+  }
+  $.ajax '/stock/ajax_disp_chart',
+    type: 'POST'
+    dataType: 'html'
+    data: data
+    error: (jqXHR, textStatus, errorThrown) ->
+      $('body').append "AJAX Error: #{textStatus}"
+    success: (data, textStatus, jqXHR) ->
+      $('#chart_container').html(data)
+      $('.tradingview-widget-container').css('height','400px')
+      $('.tradingview-widget-copyright').remove()
+
 $ ->
   $('.table-index-tr').click (e) ->
+    data = {
+      stock_id: e.currentTarget.dataset.stockid
+      mylist_id: e.currentTarget.dataset.mylistid
+    }
+    $.ajax '/stock/ajax_disp_chart',
+      type: 'POST'
+      dataType: 'html'
+      data: data
+      error: (jqXHR, textStatus, errorThrown) ->
+        $('body').append "AJAX Error: #{textStatus}"
+      success: (data, textStatus, jqXHR) ->
+        $('#chart_container').html(data)
+        $('.tradingview-widget-container').css('height','400px')
+        $('.tradingview-widget-copyright').remove()
+    
     $('#mylist-dropdown').css(top: e.pageY)
     $('#mylist-dropdown').css(left: e.pageX)
     $('#mylist-dropdown').fadeIn()
