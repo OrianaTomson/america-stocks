@@ -35,6 +35,12 @@ $ ->
 
 $ ->
   $('.table-index-tr').click (e) ->
+    if $('.loader001').length == 0
+      $('#stock-chart').append("<div class='loader001'></div>")
+      $('.loader001').css('top','-50%')
+
+    $('.loader001').show()
+
     data = {
       stock_id: e.currentTarget.dataset.stockid
       mylist_id: e.currentTarget.dataset.mylistid
@@ -49,6 +55,8 @@ $ ->
         $('#stock-chart').html(data)
         $('.tradingview-widget-container').css('height','400px')
         $('.tradingview-widget-copyright').remove()
+    sleep(2000)
+    $('.loader001').fadeOut()
 
 $ ->
   $(document).on 'contextmenu', '.table-index-tr', (e) ->
