@@ -55,6 +55,8 @@ $ ->
       success: (data, textStatus, jqXHR) ->
         $('body').append "Successful AJAX call: #{data}"
 
+    $('#mylist-dropdown').fadeOut()
+
 # $ ->
 #   $('#mylist-dropdown').click (e) ->
 #     if e.currentTarget.id == 'mylist-dropdown'

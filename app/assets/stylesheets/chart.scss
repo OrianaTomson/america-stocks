@@ -5,7 +5,7 @@
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
 
 // variables
-$card-width:  275px;
+$card-width:  100%;
 $card-height: 320px;
 $h-color:     #9CC9E3;
 $yellow:      #D0BB57;
@@ -39,6 +39,41 @@ $txt-color:   #DCE3E7;
           right: 1px;
           bottom: 1px;
           width: 14px;
+        }
+
+        .btn-circle-3d {
+          cursor: pointer;
+          display: inline-block;
+          text-decoration: none;
+          background: #ff8181;
+          color: #FFF;
+          width: 33px;
+          height: 33px;
+          top: 254px;
+          left: 55px;
+          position: absolute;
+          line-height: 120px;
+          border-radius: 50%;
+          text-align: center;
+          font-weight: bold;
+          overflow: hidden;
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+          border-bottom: solid 3px #bd6565;
+          transition: .4s;
+        }
+        
+        .btn-circle-3d:active {
+          -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+          border-bottom: none;
+        }
+
+        .icon-trash{
+          width: 30px;
+          position: absolute;
+          left: 2px;
+          top: 7px;
         }
       }
       

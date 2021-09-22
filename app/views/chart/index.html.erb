@@ -13,8 +13,8 @@
     <% end %>
 
     <select class="grid-select">
-        <option value="1">■■■</option>
-        <option value="2">〓</option>
+        <option value="1">〓</option>
+        <option value="2">■■■</option>
     </select>
 </div>
 
@@ -26,6 +26,7 @@
                 <div class="blog-card">
                     <%= render :partial => "shared/tradingview", locals: { symbol_code: tradingview.code, container_id: tradingview.container_id, time: @time} %>
                     <%= image_tag 'resize.png', class: "icon-resize" %>
+                    <div class="btn-circle-3d"><%= image_tag 'trash.png', class: "icon-trash" %></div>
                 </div>
             <% end %> 
         <% end %> 
