@@ -26,7 +26,7 @@
                 <div class="blog-card">
                     <%= render :partial => "shared/tradingview", locals: { symbol_code: tradingview.code, container_id: tradingview.container_id, time: @time} %>
                     <%= image_tag 'resize.png', class: "icon-resize" %>
-                    <div class="btn-circle-3d"><%= image_tag 'trash.png', class: "icon-trash" %></div>
+                    <div class="btn-circle-3d" data-stockid="<%= tradingview.stock_id %>" data-mylistid="<%= mylist.id %>"><%= image_tag 'trash.png', class: "icon-trash" %></div>
                 </div>
             <% end %> 
         <% end %> 

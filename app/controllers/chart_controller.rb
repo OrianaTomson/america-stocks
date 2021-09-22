@@ -11,4 +11,12 @@ class ChartController < ApplicationController
 
     @mylists = Mylist.all
   end
+
+  def ajax_delete_from_mylist
+    stock_id = params[:stock_id]
+    mylist_id = params[:mylist_id]
+
+    mylist = MylistStock.find_by(mylist_id: mylist_id, stock_id: stock_id)
+    mylist.destroy if mylist.present?
+  end
 end

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'chart/index'
   post 'chart/index'
+  post 'chart/ajax_delete_from_mylist'
 
   get 'title/index'
 
