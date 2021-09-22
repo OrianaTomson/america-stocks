@@ -15,21 +15,23 @@
 #   return
 
 $ ->
-  $('#mylist-dropdown').hide()
 
-  data = {
-    stock_id: 1
-    mylist_id: 1
-  }
-  $.ajax '/stock/ajax_disp_chart',
-    type: 'POST'
-    dataType: 'html'
-    data: data
-    error: (jqXHR, textStatus, errorThrown) ->
-      $('body').append "AJAX Error: #{textStatus}"
-    success: (data, textStatus, jqXHR) ->
-      $('#chart_container').html(data)
-      $('.tradingview-widget-container').css('height','400px')
+  if $('#stock').length > 0
+    $('#mylist-dropdown').hide()
+
+    data = {
+      stock_id: 1
+      mylist_id: 1
+    }
+    $.ajax '/stock/ajax_disp_chart',
+      type: 'POST'
+      dataType: 'html'
+      data: data
+      error: (jqXHR, textStatus, errorThrown) ->
+        $('body').append "AJAX Error: #{textStatus}"
+      success: (data, textStatus, jqXHR) ->
+        $('#chart_container').html(data)
+        $('.tradingview-widget-container').css('height','400px')
 
 $ ->
   $('.table-index-tr').click (e) ->
