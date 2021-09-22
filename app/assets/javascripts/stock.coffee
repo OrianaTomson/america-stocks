@@ -49,7 +49,10 @@ $ ->
         $('#stock-chart').html(data)
         $('.tradingview-widget-container').css('height','400px')
         $('.tradingview-widget-copyright').remove()
-    
+
+$ ->
+  $(document).on 'contextmenu', '.table-index-tr', (e) ->
+    e.preventDefault()
     $('#mylist-dropdown').css(top: e.pageY)
     $('#mylist-dropdown').css(left: e.pageX)
     $('#mylist-dropdown').fadeIn()
