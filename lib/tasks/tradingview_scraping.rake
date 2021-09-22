@@ -15,34 +15,41 @@ namespace :tradingview_scraping do
 
     desc "tradingViewからcontainer_idを引っ張ってくる"
     task :get_container_ids => :environment do
-        driver = Selenium::WebDriver.for :chrome
-        driver.navigate.to "https://jp.tradingview.com/widget/advanced-chart/"
-        inputElement = driver.find_element(:id, 'symbol')
-        submitElement = driver.find_element(:id, 'apply')
-        outputElement = driver.find_element(:id, 'output')
 
-        # 銘柄コード取得
-        codes = Stock.all.map{|tv| tv.code}
+        begin
+            driver = Selenium::WebDriver.for :chrome
+            driver.navigate.to "https://jp.tradingview.com/widget/advanced-chart/"
+            inputElement = driver.find_element(:id, 'symbol')
+            submitElement = driver.find_element(:id, 'apply')
+            outputElement = driver.find_element(:id, 'output')
 
-        codes.each do |code|
-            next if TradingView.find_by(code: code).present?
+            # 銘柄コード取得
+            codes = Stock.all.map{|tv| tv.code}
 
-            container_id = nil
-            inputElement.clear
-            inputElement.send_keys code
-            submitElement.click
-            
-            outputElement.attribute("value").split(/\n/).each do |text|
-                if text.include?("container_id")
-                    container_id = text.split(":")[1].gsub(/\"|^ /,"")
-                    break
+            codes.each do |code|
+                next if TradingView.find_by(code: code).present?
+
+                container_id = nil
+                inputElement.clear
+                inputElement.send_keys code
+                submitElement.click
+                
+                outputElement.attribute("value").split(/\n/).each do |text|
+                    if text.include?("container_id")
+                        container_id = text.split(":")[1].gsub(/\"|^ /,"")
+                        break
+                    end
                 end
+
+                stock = Stock.find_by(code: code)
+                TradingView.create(code: code, container_id: container_id, stock_id: stock.id)
             end
-
-            TradingView.create(code: code, container_id: container_id)
+        rescue
+            driver.quit
+            retry
+        ensure
+            driver.quit
         end
-
-        driver.quit
     end
 
     desc "tradingViewとstockの関連付け"

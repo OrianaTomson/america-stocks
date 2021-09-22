@@ -21,7 +21,7 @@ $ ->
   $('.table-index-tr').click (e) ->
     $('#mylist-dropdown').css(top: e.pageY)
     $('#mylist-dropdown').css(left: e.pageX)
-    $('#mylist-dropdown').show()
+    $('#mylist-dropdown').fadeIn()
 
     $('#trd-idea-link').attr("href", e.currentTarget.dataset.href)
     $('.add-list').attr('data-stockid', e.currentTarget.dataset.stockid)
