@@ -1,9 +1,9 @@
 class StockController < ApplicationController
   def index
-    code = params[:search]
+    search_param = params[:search]
 
-    if code.present?
-      @stocks = Stock.where('code like ?', "%" + code + "%")
+    if search_param.present?
+      @stocks = Stock.where('code like ? or client_name like ? or explain like ?', "%" + search_param + "%", "%" + search_param + "%", "%" + search_param + "%")
     else
       @stocks = Stock.all
     end
