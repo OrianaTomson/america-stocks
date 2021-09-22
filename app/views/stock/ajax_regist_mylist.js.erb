@@ -1,1 +1,1 @@
-$('#mylist-list').append('<p><%= @mylist_name %></p>')
+$('#mylist-list').append("<p class='add-list' data-stockid='<%= @stock_id %>' data-mylistid='<%= @mylist.id %>'><%= @mylist.name %></p>")

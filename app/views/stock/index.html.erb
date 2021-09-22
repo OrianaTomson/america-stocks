@@ -47,6 +47,7 @@
   
   <%= form_tag({:controller => '/stock', :action => 'ajax_regist_mylist'}, :remote => true, :class => 'form-ajax') do -%>
     <input type="text" name="list_name" size="25" placeholder="リスト名"　id="list_name_input">
+    <input type="hidden" name="stock_id" value="" id="stock_id_for_id">
     <input type="submit" value="登録">
   <% end %>
 </div>

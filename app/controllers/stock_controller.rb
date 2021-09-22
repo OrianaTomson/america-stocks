@@ -13,8 +13,8 @@ class StockController < ApplicationController
   end
 
   def ajax_regist_mylist
-    @mylist_name = params[:list_name]
-    Mylist.create({name: @mylist_name})
+    @mylist = Mylist.create({name: params[:list_name]})
+    @stock_id = params[:stock_id]
   end
 
   def add_stock_mylist

@@ -30,7 +30,6 @@ $ ->
     success: (data, textStatus, jqXHR) ->
       $('#chart_container').html(data)
       $('.tradingview-widget-container').css('height','400px')
-      $('.tradingview-widget-copyright').html('銘柄を選択時、チャートが表示されます')
 
 $ ->
   $('.table-index-tr').click (e) ->
@@ -55,6 +54,7 @@ $ ->
 
     $('#trd-idea-link').attr("href", e.currentTarget.dataset.href)
     $('.add-list').attr('data-stockid', e.currentTarget.dataset.stockid)
+    $('#stock_id_for_id').val(e.currentTarget.dataset.stockid)
     return
   return
 
@@ -70,7 +70,8 @@ $ ->
   return
 
 $ ->
-  $('.add-list').click (e) ->
+
+  $(document).on 'click', '.add-list', (e) ->
     data = {
       stock_id: e.currentTarget.dataset.stockid
       mylist_id: e.currentTarget.dataset.mylistid
