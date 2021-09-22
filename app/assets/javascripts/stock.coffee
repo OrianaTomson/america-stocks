@@ -30,7 +30,7 @@ $ ->
     success: (data, textStatus, jqXHR) ->
       $('#chart_container').html(data)
       $('.tradingview-widget-container').css('height','400px')
-      $('.tradingview-widget-copyright').remove()
+      $('.tradingview-widget-copyright').html('銘柄を選択時、チャートが表示されます')
 
 $ ->
   $('.table-index-tr').click (e) ->
@@ -45,7 +45,7 @@ $ ->
       error: (jqXHR, textStatus, errorThrown) ->
         $('body').append "AJAX Error: #{textStatus}"
       success: (data, textStatus, jqXHR) ->
-        $('#chart_container').html(data)
+        $('#stock-chart').html(data)
         $('.tradingview-widget-container').css('height','400px')
         $('.tradingview-widget-copyright').remove()
     
