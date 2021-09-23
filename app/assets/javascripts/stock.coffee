@@ -99,14 +99,22 @@ $ ->
     num = 0
 
     ajax_disp_chart pics_src[num].dataset.stockid, pics_src[num].dataset.mylistid
+    pics_src.eq(num).css({'background-color' : '#efd555', 'color' : 'black'})
 
     slideshow_timer = ->
+      pics_src.eq(num).css({'background-color' : '#34373e','color' : 'white'})
+
       num++
       
       if max == num
         clearInterval slideshow_timer
-
+        $('.slide-load').hide()
+        $('.icon-movie').show()
+      pics_src.eq(num).css({'background-color' : '#efd555', 'color' : 'black'})
       ajax_disp_chart pics_src[num].dataset.stockid, pics_src[num].dataset.mylistid
+      $('#stock-chart').append("<div class='loader001'></div>")
+      $('.loader001').css('top','-50%')
+      $('.loader001').show()
 
     setInterval slideshow_timer, 10000
   return
