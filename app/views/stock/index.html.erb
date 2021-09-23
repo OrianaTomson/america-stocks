@@ -22,7 +22,7 @@
         <th class="last">市場</th>
     <tr>
     <% @stocks.each do |stock| %>
-        <tr class='table-index-tr' data-stockid="<%= stock.id %>", data-href="https://jp.tradingview.com/symbols/<%= stock.market + "-" + stock.code %>/ideas" target="_blank">
+        <tr class='table-index-tr' data-stockid="<%= stock.id %>", data-href="https://www.tradingview.com/chart/aiKNXGel/?symbol=<%= stock.market + "%3A" + stock.code %>" target="_blank">
             <td><%= image_tag 'machine.jpg' %></td>
             <td><%= stock.code %></td>
             <td><%= stock.client_name %></td>
