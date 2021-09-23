@@ -151,6 +151,10 @@
     }
 }
 
+.icon-movie{
+    width: 20px;
+}
+
 /* 001 */
 .loader001,
 .loader001:before,
@@ -212,4 +216,60 @@
     box-shadow: 0 -2em;
     height: 5em;
   }
+}
+
+$prime: #efd555;
+$second: #0c1016;
+
+#gooey-button{
+    padding: 1.21rem;
+    border: none;
+    color: #0c1016;
+    filter: url(#gooey);
+    position: absolute;
+    left: 1016px;
+    top: 28px;
+    background-color: #efd555;
+
+    &:focus{
+        outline: none;
+    }
+
+    .bubbles{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        .bubble{
+            background-color: $prime;
+            border-radius: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            z-index: -1;
+
+            @for $bubble from 1 through 10{
+                &:nth-child(#{$bubble}){
+                    $size: 25px;
+                    left: (random(90) + 10)+px;
+                    width: $size;
+                    height: $size;
+                    animation: move-#{$bubble} #{3 + $bubble*0.02}s infinite;
+                    animation-delay: #{$bubble*0.2}s;
+                }
+            }
+        }
+    }
+}
+                
+@for $bubble from 1 through 10{
+    @keyframes move-#{$bubble}{
+        0%{transform: translate(0, 0);}
+        99%{transform: translate(0, -(random(80) + 50)+px);}
+        100%{transform: translate(0, 0);
+            opacity: 0;}    
+    }
 }

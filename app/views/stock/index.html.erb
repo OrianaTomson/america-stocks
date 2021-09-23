@@ -6,7 +6,36 @@
     <input type="text" name="search" size="25" placeholder="銘柄コード, 会社名, 説明を入力">
     <input type="submit" value="&#xf002">
   <% end %>
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+        <filter id="gooey">
+            <!-- in="sourceGraphic" -->
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+            <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="highContrastGraphic" />
+            <feComposite in="SourceGraphic" in2="highContrastGraphic" operator="atop" />
+        </filter>
+    </defs>
+  </svg>
+
+  <button id="gooey-button">
+    <%= image_tag 'movie.png', class: "icon-movie" %>
+    slide-show
+    <span class="bubbles">
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+    </span>
+  </button>
 </div>
+
 <div id="stock-chart">
   <%= image_tag 'smile.png', class: "icon-chart-ast" %>
   <div class="loader001"></div>
