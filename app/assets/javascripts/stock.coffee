@@ -40,24 +40,11 @@ $ ->
       $('.loader001').css('top','-50%')
 
     $('.loader001').show()
-
-    data = {
-      stock_id: e.currentTarget.dataset.stockid
-      mylist_id: e.currentTarget.dataset.mylistid
-    }
-    $.ajax '/stock/ajax_disp_chart',
-      type: 'POST'
-      dataType: 'html'
-      data: data
-      error: (jqXHR, textStatus, errorThrown) ->
-        $('body').append "AJAX Error: #{textStatus}"
-      success: (data, textStatus, jqXHR) ->
-        $('#stock-chart').html(data)
-        $('.tradingview-widget-container').css('height','400px')
-        $('.tradingview-widget-copyright').remove()
+    ajax_disp_chart e.currentTarget.dataset.stockid, e.currentTarget.dataset.mylistid
     sleep(2000)
     $('.loader001').fadeOut()
 
+# When right click stock list
 $ ->
   $(document).on 'contextmenu', '.table-index-tr', (e) ->
     e.preventDefault()
@@ -71,6 +58,11 @@ $ ->
     return
   return
 
+# When touch keys
+$ ->
+  $(document).keydown ivnt_keydown
+  return
+
 ivnt_keydown = (e) ->
   # ESCAPE key pressed
   if e.keyCode == 27
@@ -78,12 +70,8 @@ ivnt_keydown = (e) ->
 
   return
 
+# When Add stock MyList
 $ ->
-  $(document).keydown ivnt_keydown
-  return
-
-$ ->
-
   $(document).on 'click', '.add-list', (e) ->
     data = {
       stock_id: e.currentTarget.dataset.stockid
@@ -100,6 +88,46 @@ $ ->
         $('body').append "Successful AJAX call: #{data}"
 
     $('#mylist-dropdown').fadeOut()
+
+# Slide Show
+$ ->
+  $('#gooey-button').click (e) ->
+    $('.icon-movie').hide()
+    $('.slide-load').show()
+    pics_src = $('.table-index-tr')
+    max = pics_src.length - 1
+    num = 0
+
+    ajax_disp_chart pics_src[num].dataset.stockid, pics_src[num].dataset.mylistid
+
+    slideshow_timer = ->
+      num++
+      
+      if max == num
+        clearInterval slideshow_timer
+
+      ajax_disp_chart pics_src[num].dataset.stockid, pics_src[num].dataset.mylistid
+
+    setInterval slideshow_timer, 10000
+  return
+
+# function: get tradingview chart for stock page
+ajax_disp_chart = (stock_id, mylist_id) ->
+  data = {
+    stock_id: stock_id
+    mylist_id: mylist_id
+  }
+
+  $.ajax '/stock/ajax_disp_chart',
+    type: 'POST'
+    dataType: 'html'
+    data: data
+    error: (jqXHR, textStatus, errorThrown) ->
+      $('body').append "AJAX Error: #{textStatus}"
+    success: (data, textStatus, jqXHR) ->
+      $('#stock-chart').html(data)
+      $('.tradingview-widget-container').css('height','400px')
+      $('.tradingview-widget-copyright').remove()
 
 # $ ->
 #   $('#mylist-dropdown').click (e) ->
